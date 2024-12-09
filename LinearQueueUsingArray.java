@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 // Generic Queue class using an array
-class Queue<T> {
+class Queue<T>
+{
     private T[] data;  // Array to hold the queue elements
     private int front;  // Index of the front element
     private int rear;   // Index of the rear element
