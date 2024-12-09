@@ -44,7 +44,8 @@ class Queue<T>
         {
             front = -1; // Reset the queue if it becomes empty
             rear = -1;
-        } else
+        }
+        else
             front++; // Move front to the next element
     
         return item; // Return the dequeued item
