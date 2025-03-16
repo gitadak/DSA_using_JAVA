@@ -114,6 +114,79 @@ class BST
         }
     }
 
+    public int countNodes() 
+    {
+        return countNodes(root);
+    }
+
+    private int countNodes(Node root) 
+    {
+        if (root == null) 
+            return 0;
+        else
+            return countNodes(root.left) + countNodes(root.right) + 1;
+    }
+
+    public int countLeafNodes() 
+    {
+        return countLeafNodes(root);
+    }
+
+    private int countLeafNodes(Node root) 
+    {
+        if (root == null) 
+            return 0;
+        else if (root.left == null && root.right == null) 
+            return 1;
+        else
+            return countLeafNodes(root.left) + countLeafNodes(root.right);
+    }
+
+    public int countNonLeafNodes() 
+    {
+        return countNonLeafNodes(root);
+    }
+
+    private int countNonLeafNodes(Node root) 
+    {
+        if (root == null || (root.left == null && root.right == null)) 
+            return 0;
+        else
+            return countNonLeafNodes(root.left) + countNonLeafNodes(root.right) + 1;
+    }
+
+    public int height() 
+    {
+        return height(root);
+    }
+
+    private int height(Node root) 
+    {
+        if (root == null) 
+            return 0;
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    public Node findSmallest() 
+    {
+        return findMin(root);
+    }
+
+    public Node findLargest() 
+    {
+        return findLargest(root);
+    }
+
+    private Node findLargest(Node root) 
+    {
+        if (root == null || root.right == null) 
+            return root;
+        else
+            return findLargest(root.right);
+    }
+
     public static void main(String[] args) 
     {
         BST tree = new BST();
@@ -121,7 +194,7 @@ class BST
         int choice, value;
         do 
         {
-            System.out.print("\n1. Insert\n2. Preorder\n3. Inorder\n4. Postorder\n5. Delete\n6. Exit\nEnter your choice: ");
+            System.out.print("\n1. Insert\n2. Preorder\n3. Inorder\n4. Postorder\n5. Delete\n6. Count Nodes\n7. Count Leaf Nodes\n8. Count Non-Leaf Nodes\n9. Height of Tree\n10. Find Smallest Node\n11. Find Largest Node\n12. Exit\nEnter your choice: ");
             choice = scanner.nextInt();
             switch (choice) 
             {
@@ -144,10 +217,34 @@ class BST
                     value = scanner.nextInt();
                     tree.delete(value);
                     break;
+                case 6:
+                    System.out.println("Total number of nodes: " + tree.countNodes());
+                    break;
+                case 7:
+                    System.out.println("Total number of leaf nodes: " + tree.countLeafNodes());
+                    break;
+                case 8:
+                    System.out.println("Total number of non-leaf nodes: " + tree.countNonLeafNodes());
+                    break;
+                case 9:
+                    System.out.println("Height of the tree: " + tree.height());
+                    break;
+                case 10:
+                    Node smallest = tree.findSmallest();
+                    if (smallest != null) 
+                        System.out.println("Smallest node: " + smallest.key);
+                    else
+                        System.out.println("Tree is empty");
+                    break;
+                case 11:
+                    Node largest = tree.findLargest();
+                    if (largest != null) 
+                        System.out.println("Largest node: " + largest.key);
+                    else
+                        System.out.println("Tree is empty");
+                    break;
             }
-        } while (choice != 6);
+        } while (choice != 12);
         scanner.close();
     }
 }
-
-
