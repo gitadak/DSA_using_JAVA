@@ -73,3 +73,12 @@ public class MaxMinDivCon
         sc.close();
     }
 }
+
+/*
+Feature | Normal Method | Divide & Conquer Method
+Total Comparisons | 2(n - 1) | ~1.5n - 2 (fewer)
+Approach | Iterative | Recursive (or stack-based)
+Code Complexity | Simple | Slightly complex
+Best for | Small arrays | Large datasets or recursion practice
+Space Complexity | O(1) | O(log n) due to recursion stack
+*/
