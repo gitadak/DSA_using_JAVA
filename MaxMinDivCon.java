@@ -9,7 +9,7 @@ class Pair
 public class MaxMinDivCon 
 {
     public static Pair maxMinDivCon(int[] a, int low, int high) 
-  {
+    {
         Pair result = new Pair();
         Pair left = new Pair();
         Pair right = new Pair();
