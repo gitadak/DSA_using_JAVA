@@ -109,28 +109,7 @@ Adjacency Matrix:
 BFS Traversal starting from node 1: 1 2 3 4 5
 */
 
-import java.util.ArrayList;
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.Scanner;
-
-/*
-Sample Input
-------------
-Enter number of vertices: 6
-Enter number of edges: 4
-Enter edges (u v):
-1 2
-0 3
-2 0
-3 4
-Enter starting vertex: 0
-
-Sample Output
--------------
-BFS Traversal:
-0 3 2 4 1
-*/
+/**********************************************************************************************************************************/
 
 /*
 import java.util.ArrayList;
@@ -213,6 +192,7 @@ class BFS
         sc.close();
     }
 }
+*/
 
 /*
 Sample Input
@@ -230,5 +210,4 @@ Sample Output
 -------------
 BFS Traversal:
 0 3 2 4 1
-*/
 */
