@@ -116,18 +116,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
-class GfG
+class DFS
 {
     // Non-recursive DFS using stack (connected graph)
-    static ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj)
+    static ArrayList<Integer> dfs(
+            ArrayList<ArrayList<Integer>> adj,
+            int start)
     {
         int V = adj.size();
         boolean[] visited = new boolean[V];
         ArrayList<Integer> result = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
 
-        // Start DFS from vertex 0
-        stack.push(0);
+        // Start DFS from user-given vertex
+        stack.push(start);
 
         while (!stack.isEmpty())
         {
@@ -139,7 +141,7 @@ class GfG
                 result.add(current);
 
                 // Push neighbours in reverse order
-                // to match recursive DFS order
+                // to maintain DFS order
                 for (int i = adj.get(current).size() - 1; i >= 0; i--)
                 {
                     int neighbour = adj.get(current).get(i);
@@ -184,7 +186,10 @@ class GfG
             addEdge(adj, u, v);
         }
 
-        ArrayList<Integer> res = dfs(adj);
+        System.out.print("Enter starting vertex: ");
+        int start = sc.nextInt();
+
+        ArrayList<Integer> res = dfs(adj, start);
 
         System.out.println("\nDFS Traversal:");
         for (int x : res)
@@ -206,9 +211,10 @@ Enter edges (u v):
 2 0
 2 3
 2 4
+Enter starting vertex: 2
 
 Sample Output
 -------------
 DFS Traversal:
-0 1 2 3 4
+2 4 3 0 1
 */
