@@ -108,3 +108,127 @@ Adjacency Matrix:
   0   0  -1   0   0
 BFS Traversal starting from node 1: 1 2 3 4 5
 */
+
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+/*
+Sample Input
+------------
+Enter number of vertices: 6
+Enter number of edges: 4
+Enter edges (u v):
+1 2
+0 3
+2 0
+3 4
+Enter starting vertex: 0
+
+Sample Output
+-------------
+BFS Traversal:
+0 3 2 4 1
+*/
+
+/*
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+class BFS
+{
+    // BFS for connected graph
+    static ArrayList<Integer> bfs(
+            ArrayList<ArrayList<Integer>> adj,
+            int start)
+    {
+        int V = adj.size();
+        boolean[] visited = new boolean[V];
+        ArrayList<Integer> result = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited[start] = true;
+        queue.add(start);
+
+        while (!queue.isEmpty())
+        {
+            int current = queue.poll();
+            result.add(current);
+
+            // Visit all unvisited neighbours
+            for (int neighbour : adj.get(current))
+            {
+                if (!visited[neighbour])
+                {
+                    visited[neighbour] = true;
+                    queue.add(neighbour);
+                }
+            }
+        }
+        return result;
+    }
+
+    // Add undirected edge
+    static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v)
+    {
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of vertices: ");
+        int V = sc.nextInt();
+
+        System.out.print("Enter number of edges: ");
+        int E = sc.nextInt();
+
+        // Create adjacency list
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < V; i++)
+            adj.add(new ArrayList<>());
+
+        System.out.println("Enter edges (u v):");
+        for (int i = 0; i < E; i++)
+        {
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            addEdge(adj, u, v);
+        }
+
+        System.out.print("Enter starting vertex: ");
+        int start = sc.nextInt();
+
+        ArrayList<Integer> result = bfs(adj, start);
+
+        System.out.println("\nBFS Traversal:");
+        for (int x : result)
+            System.out.print(x + " ");
+
+        sc.close();
+    }
+}
+
+/*
+Sample Input
+------------
+Enter number of vertices: 6
+Enter number of edges: 4
+Enter edges (u v):
+1 2
+0 3
+2 0
+3 4
+Enter starting vertex: 0
+
+Sample Output
+-------------
+BFS Traversal:
+0 3 2 4 1
+*/
+*/
